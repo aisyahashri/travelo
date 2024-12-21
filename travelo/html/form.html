@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Plan Travel</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/daterangepicker.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+    <body>
+        <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/"><span>Travelo</span></a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                    <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="form.html">Plan Travel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="result.html">My Trip</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <section class="py-4 mt-4">
+            <div class="container mt-5">
+                <h2 class="text-center mb-4">Travel Itinerary</h2>
+                <form id="travelForm" action="../php/formRead.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <div class="accordion" id="travelPlanAccordion">
+
+                        <!-- Trip Details -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTripDetails">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTripDetails" aria-expanded="true" aria-controls="collapseTripDetails">
+                                    Trip Details
+                                </button>
+                            </h2>
+                            <div id="collapseTripDetails" class="accordion-collapse collapse show"
+                                aria-labelledby="headingTripDetails" data-bs-parent="#travelPlanAccordion">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label for="location" class="form-label">Country</label>
+                                        <input type="text" id="location" name="location" class="form-control" placeholder="Enter trip country" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="purpose" class="form-label">Purpose of Travel / Travel Notes</label>
+                                        <textarea id="purpose" name="purpose" class="form-control" rows="3" placeholder="Enter your travel notes" required></textarea>
+                                    <div class="mb-3">
+                                        <label for="travel-date" class="form-label">Travel Date</label>
+                                        <input type="text" id="travel-date" name="travel_date" class="form-control" placeholder="Select your travel dates" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="uploadFile" class="form-label">Travel Document</label>
+                                        <input type="file" id="uploadFile" name="uploaded_files[]" class="form-control" multiple>
+                                    </div>                                
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Flight Information -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFlightInfo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlightInfo" aria-expanded="false" aria-controls="collapseFlightInfo">
+                                    Flight Information
+                                </button>
+                                </h2>
+                                <div id="collapseFlightInfo" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFlightInfo" data-bs-parent="#travelPlanAccordion">
+                                    <div class="accordion-body">
+                                        <div class="mb-3">
+                                            <label for="departure-date" class="form-label">Departure Date and Time</label>
+                                            <input type="datetime-local" id="departure-date" name="departure_date" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="return-date" class="form-label">Return Date and Time</label>
+                                            <input type="datetime-local" id="return-date" name="return_date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accommodation -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingAccommodation">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccommodation" aria-expanded="false" aria-controls="collapseAccommodation">
+                                    Accommodation
+                                </button>
+                                </h2>
+                                <div id="collapseAccommodation" class="accordion-collapse collapse"
+                                    aria-labelledby="headingAccommodation" data-bs-parent="#travelPlanAccordion">
+                                    <div class="accordion-body">
+                                        <label class="form-label">Accommodation Type:</label>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="hotel" name="accommodation" value="Hotel" class="form-check-input" required>
+                                            <label for="hotel" class="form-check-label">Hotel</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="airbnb" name="accommodation" value="Airbnb" class="form-check-input" required>
+                                            <label for="airbnb" class="form-check-label">Airbnb</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="hostel" name="accommodation" value="Hostel" class="form-check-input" required>
+                                            <label for="hostel" class="form-check-label">Hostel</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input type="radio" id="other" name="accommodation" value="Other" class="form-check-input" required>
+                                            <label for="other" class="form-check-label">Other</label>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="accommodation-name" class="form-label">Name of Accommodation</label>
+                                            <input type="text" id="accommodation-name" name="accommodation_name" class="form-control" placeholder="Enter the accommodation name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Activity Section -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingActivity">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseActivity" aria-expanded="false" aria-controls="collapseActivity">
+                                    Activity Schedule
+                                </button>
+                                </h2>
+                                <div id="collapseActivity" class="accordion-collapse collapse"
+                                    aria-labelledby="headingActivity" data-bs-parent="#travelPlanAccordion">
+                                    <div class="accordion-body">
+                                        <table id="activityTable" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Activity</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="activityTableBody">
+                                                <tr>
+                                                    <td><input class="form-control" type="date" name="activity_date[]" required>
+                                                    </td>
+                                                    <td><input class="form-control" type="text" name="activity_desc[]" placeholder="Enter activity" required>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button type="button" class="btn btn-primary" onclick="addRow('activityTable')">Add Activity</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- To-Do List Section -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingPackingList">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePackingList" aria-expanded="false" aria-controls="collapsePackingList">
+                                    To-Do List
+                                </button>
+                                </h2>
+                                <div id="collapsePackingList" class="accordion-collapse collapse"
+                                    aria-labelledby="headingPackingList" data-bs-parent="#travelPlanAccordion">
+                                    <div class="accordion-body">
+                                        <ul id="packingList" class="list-group">
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <input type="checkbox" name="packing_checked[]" class="form-check-input me-2">
+                                                <input type="text" name="packing_item[]" class="form-control me-2" placeholder="Enter item" required>
+                                                <div class="invalid-feedback">Please enter things to do.
+                                                </div>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="deletePackingItem(this)">Delete</button>
+                                            </li>
+                                        </ul>
+                                        <button type="button" class="btn btn-primary mt-2" onclick="addPackingItem()">Add List</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                        <div id="formResult" class="mt-4"></div>
+                </form>
+            </div>
+        </section>
+
+        <footer style="background-color: #f8f9fa; padding: 20px 0; border-top: 1px solid #e9ecef;">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2024 Travelo. All rights reserved</p>
+            </div>
+        </footer>
+
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/daterangepicker.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/form.js"></script>
+
+    </body>
+</html>

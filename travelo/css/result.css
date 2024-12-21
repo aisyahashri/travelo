@@ -1,0 +1,14 @@
+.card img {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.card-body {
+    min-height: 180px;
+}
+
+.hidden-form {
+    display: none;
+}
+

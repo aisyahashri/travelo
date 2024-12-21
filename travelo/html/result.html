@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Trip</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="../css/result.css">
+
+    <style>
+        footer {
+        background-color: #f8f9fa;
+        padding: 20px 0;
+        border-top: 1px solid #e9ecef;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/"><span>Travelo</span></a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form.html">Plan Travel</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="result.html">My Trip</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-4 mt-4">
+    <div class="container my-5">
+        <h2 class="text-center">My Trip Itineraries</h2>
+        <div id="itineraryContainer" class="row mt-4"></div>
+    </div>
+
+    <!-- Hidden form for POST request -->
+    <form id="hiddenForm" class="hidden-form" method="POST" action="../php/formRead.php">
+        <input type="hidden" name="location">
+        <input type="hidden" name="purpose">
+        <input type="hidden" name="travel_date">
+        <input type="hidden" name="departure_date">
+        <input type="hidden" name="return_date">
+        <input type="hidden" name="accommodation">
+        <input type="hidden" name="accommodation_name">
+        <input type="hidden" name="activity_date[]">
+        <input type="hidden" name="activity_desc[]">
+        <input type="hidden" name="packing_item[]">
+        <input type="hidden" name="packing_checked[]">
+    </form>
+</section>
+
+    <footer style="background-color: #f8f9fa; padding: 20px 0; border-top: 1px solid #e9ecef;">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Travelo. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/result.js"></script>
+</body>
+
+</html>
