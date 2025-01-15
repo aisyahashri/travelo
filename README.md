@@ -8,6 +8,8 @@ Simple Travel Itinerary Planner Website. Travelo is user-friendly web applicatio
 - Group: RCS2405B
 - Program code: CS240
 
+**Website URL: https://ctech.life/travelo/html/index.html**
+
 ## **Website Preview**
 
 ![image](https://github.com/aisyahashri/travelo/blob/725f91ba72ba161cf6493c15b4b686d20146499c/travelo.png)
